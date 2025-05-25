@@ -19,4 +19,17 @@ public List<Products> getAllProducts(){
 public Optional<Products> getProductByID(int id){
     return productrepo.findById(id);
 }
+
+public String deleteProductByID(int id){
+     productrepo.deleteById(id);
+     return "Product is deleted";
 }
+
+public Products saveProduct(Products product){
+  return  productrepo.save(product);
+}
+
+
+
+}
+
