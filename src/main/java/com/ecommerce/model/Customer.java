@@ -1,8 +1,7 @@
 package com.ecommerce.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -11,16 +10,19 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
-    private String email;
-    private String role;
 
-    public String getRole() {
+    private String password;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -32,7 +34,7 @@ public class Customer {
         this.password = password;
     }
 
-    private String password;
+
     public int getId() {
         return id;
     }
@@ -49,13 +51,7 @@ public class Customer {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
 
 }

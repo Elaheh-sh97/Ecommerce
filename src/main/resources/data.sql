@@ -9,3 +9,6 @@ INSERT INTO products(pname,pinfo,nproduct) VALUES
 ('White Shoes', 'White sneakers, lightweight and comfy', 25),
 ('Black Shoes', 'Black formal shoes for men', 8),
 ('Brown Shoes', 'Brown leather shoes with grip sole', 11);
+
+INSERT INTO customer(username,password,role) VALUES
+('Elaheh','$2a$12$98x9BLeHMr/TsyABfyuc.Oy3110LkJ3PzCdFwdxl0XQx1vcw1MKxq','ADMIN')
