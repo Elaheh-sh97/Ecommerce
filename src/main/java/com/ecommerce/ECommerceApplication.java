@@ -18,17 +18,6 @@ public class ECommerceApplication {
     public static void main(String[] args) {
        ApplicationContext context = SpringApplication.run(ECommerceApplication.class, args);
 
-//        ProductRepository productRepo=context.getBean(ProductRepository.class);
-
-//       ProductService productSer=context.getBean(ProductService.class);
-
-
-
-//        productRepo.deleteAll();
-
-//        EcomRestController econtroller;
-
-//      econtroller.getProduct();
 
 
     }
