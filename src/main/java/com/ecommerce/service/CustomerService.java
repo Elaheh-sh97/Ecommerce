@@ -24,13 +24,13 @@ public class CustomerService {
 
         customer.setPassword(passwordEncoder.encode(customerDto.getPassword()));
         customer.setRole(Role.CUSTOMER);
-        System.out.println(customer.getPassword());
+//        System.out.println(customer.getPassword());
         customerRepository.save(customer);
 
     }
 
-    public void login(CustomerDto customerDto){
-
-    }
+//    public void login(CustomerDto customerDto){
+//
+//    }
 
 }

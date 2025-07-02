@@ -1,6 +1,7 @@
 package com.ecommerce.controller;
 import com.ecommerce.dto.CustomerDto;
 import com.ecommerce.service.CustomerService;
+import com.ecommerce.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,8 @@ public class AuthController {
     private CustomerService customerService;
 
     @Autowired
+    private JwtService jwtService;
+    @Autowired
    private AuthenticationManager authenticationManager;
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody CustomerDto customerDto){
@@ -27,12 +30,17 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody CustomerDto customerDto){
+    public String login(@RequestBody CustomerDto customerDto){
         Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 customerDto.getUsername(),
                 customerDto.getPassword()
         ));
-        return ResponseEntity.ok("Login successful");
+        if(authentication.isAuthenticated()){
+            return jwtService.generateToken(customerDto.getUsername());
+        }else{
+            return "failed";
+        }
+
     }
 
 }

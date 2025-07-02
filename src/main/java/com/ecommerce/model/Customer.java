@@ -21,6 +21,13 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    public Customer() {
+    }
+
+    public Customer(String name) {
+        this.username = name;
+    }
+
     public Role getRole() {
         return role;
     }
